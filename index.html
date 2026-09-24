@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Master</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .student {
+            margin-bottom: 25px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        .question p {
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            padding: 7px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #222;
+            color: white;
+            font-size: 16px;
+        }
+
+        .message {
+            background: #ffe5e5;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .result {
+            background: #e5ffe9;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Quiz Master</h1>
+
+    {% if message %}
+        <div class="message">
+            <b>{{ message }}</b>
+        </div>
+    {% endif %}
+
+    {% if result %}
+        <div class="result">
+            <h2>Exam Submitted!</h2>
+            <p>Your Score: <b>{{ result.score }} / {{ result.total }}</b></p>
+        </div>
+    {% endif %}
+
+    {% if not result %}
+
+    <form method="POST">
+
+        <div class="student">
+            <label><b>Student ID</b></label>
+            <input type="text" name="student_id" placeholder="Enter your Student ID" required>
+        </div>
+
+        <div class="question">
+            <p>1. What is the capital of India?</p>
+
+            <label>
+                <input type="radio" name="q1" value="Delhi" required>
+                Delhi
+            </label>
+
+            <label>
+                <input type="radio" name="q1" value="Mumbai">
+                Mumbai
+            </label>
+
+            <label>
+                <input type="radio" name="q1" value="Chennai">
+                Chennai
+            </label>
+
+            <label>
+                <input type="radio" name="q1" value="Kolkata">
+                Kolkata
+            </label>
+        </div>
+
+
+        <div class="question">
+            <p>2. Which is a programming language?</p>
+
+            <label>
+                <input type="radio" name="q2" value="Python" required>
+                Python
+            </label>
+
+            <label>
+                <input type="radio" name="q2" value="Windows">
+                Windows
+            </label>
+
+            <label>
+                <input type="radio" name="q2" value="Google">
+                Google
+            </label>
+
+            <label>
+                <input type="radio" name="q2" value="Chrome">
+                Chrome
+            </label>
+        </div>
+
+
+        <div class="question">
+            <p>3. Which part is called the brain of the computer?</p>
+
+            <label>
+                <input type="radio" name="q3" value="CPU" required>
+                CPU
+            </label>
+
+            <label>
+                <input type="radio" name="q3" value="Monitor">
+                Monitor
+            </label>
+
+            <label>
+                <input type="radio" name="q3" value="Keyboard">
+                Keyboard
+            </label>
+
+            <label>
+                <input type="radio" name="q3" value="Mouse">
+                Mouse
+            </label>
+        </div>
+
+
+        <div class="question">
+            <p>4. Which language is used to create the structure of a web page?</p>
+
+            <label>
+                <input type="radio" name="q4" value="HTML" required>
+                HTML
+            </label>
+
+            <label>
+                <input type="radio" name="q4" value="Python">
+                Python
+            </label>
+
+            <label>
+                <input type="radio" name="q4" value="SQL">
+                SQL
+            </label>
+
+            <label>
+                <input type="radio" name="q4" value="C">
+                C
+            </label>
+        </div>
+
+
+        <div class="question">
+            <p>5. Which memory is temporary?</p>
+
+            <label>
+                <input type="radio" name="q5" value="RAM" required>
+                RAM
+            </label>
+
+            <label>
+                <input type="radio" name="q5" value="ROM">
+                ROM
+            </label>
+
+            <label>
+                <input type="radio" name="q5" value="Hard Disk">
+                Hard Disk
+            </label>
+
+            <label>
+                <input type="radio" name="q5" value="SSD">
+                SSD
+            </label>
+        </div>
+
+
+        <button type="submit">Submit Exam</button>
+
+    </form>
+
+    {% endif %}
+
+</div>
+
+</body>
+    </html>            
